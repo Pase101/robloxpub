@@ -146,7 +146,7 @@ Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&as
 
 Base.Name = "Base"
 Base.Parent = Bar
-Base.BackgroundColor3 = Color3.new(0.466666, 0.160784, 0.478431)
+Base.BackgroundColor3 = Color3.new(57, 86, 107)
 Base.BorderSizePixel = 0
 Base.Position = UDim2.new(0, 0, 0.800000012, 0)
 Base.Size = UDim2.new(1, 0, 0, 10)
