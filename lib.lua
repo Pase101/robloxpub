@@ -101,7 +101,7 @@ Label.Size = UDim2.new(0, 200, 0, 20)
 Label.Font = Enum.Font.DenkOne
 Label.Text = "Hello, world 123"
 Label.TextColor3 = Color3.new(1, 1, 1)
-Label.TextSize = 14
+Label.TextSize = 22
 Label.TextXAlignment = Enum.TextXAlignment.Left
 
 Window.Name = "Window"
