@@ -101,7 +101,7 @@ Label.Size = UDim2.new(0, 200, 0, 20)
 Label.Font = Enum.Font.GothamSemibold
 Label.Text = "Hello, world 123"
 Label.TextColor3 = Color3.new(1, 1, 1)
-Label.TextSize = 14
+Label.TextSize = 16
 Label.TextXAlignment = Enum.TextXAlignment.Left
 
 Window.Name = "Window"
@@ -114,7 +114,7 @@ Window.Position = UDim2.new(0, 20, 0, 20)
 Window.Selectable = true
 Window.Size = UDim2.new(0, 200, 0, 200)
 Window.Image = "rbxassetid://2851926732"
-Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
+Window.ImageColor3 = Color3.new(0.294117, 0.372549, 0.450980)
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
@@ -129,14 +129,14 @@ Resizer.Size = UDim2.new(0, 20, 0, 20)
 
 Bar.Name = "Bar"
 Bar.Parent = Window
-Bar.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Bar.BackgroundColor3 = Color3.new(0.250980, 0.294117, 0.266666)
 Bar.BorderSizePixel = 0
 Bar.Position = UDim2.new(0, 0, 0, 5)
 Bar.Size = UDim2.new(1, 0, 0, 15)
 
 Toggle.Name = "Toggle"
 Toggle.Parent = Bar
-Toggle.BackgroundColor3 = Color3.new(1, 1, 1)
+Toggle.BackgroundColor3 = Color3.new(0.372549, 0.247058, 0.235294)
 Toggle.BackgroundTransparency = 1
 Toggle.Position = UDim2.new(0, 5, 0, -2)
 Toggle.Rotation = 90
@@ -146,7 +146,7 @@ Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&as
 
 Base.Name = "Base"
 Base.Parent = Bar
-Base.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Base.BackgroundColor3 = Color3.new(0.466666, 0.160784, 0.478431)
 Base.BorderSizePixel = 0
 Base.Position = UDim2.new(0, 0, 0.800000012, 0)
 Base.Size = UDim2.new(1, 0, 0, 10)
