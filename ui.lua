@@ -86,23 +86,22 @@ killing:AddLabel("Punches")
 local swPunch = killing:AddSwitch("Punch1", function(enabled)
 	local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:FindFirstChild("Humanoid")
-    local backpack = player:FindFirstChild("Backpack")
+    local backpack = player:WaitForChild("Backpack")
     local punchTool = backpack:FindFirstChild("Punch") or character:FindFirstChild("Punch")
 
     if state then
-        -- Equip the tool if it's in the backpack
-        if punchTool and humanoid then
-            humanoid:EquipTool(punchTool)
+        -- Equip the tool if it's found
+        if punchTool then
+            punchTool.Parent = character
         else
-            warn("Punch tool not found or humanoid missing!")
+            warn("Punch tool not found in Backpack or Character!")
         end
     else
-        -- Unequip the tool and send it back to the backpack if currently equipped
+        -- Unequip the tool if currently equipped
         if punchTool and punchTool.Parent == character then
             punchTool.Parent = backpack
         else
-            warn("Punch tool not equipped or not found!")
+            warn("Punch tool not currently equipped!")
         end
     end
 end)
