@@ -225,6 +225,7 @@ swGlitch2:Set(false)
 local extras = window:AddTab("Extras")
 
 extras:AddLabel("Teleport")
+
 local dTP = extras:AddDropdown("Places", function(place)
 	if place == "1" then
 		print("o")
@@ -245,14 +246,14 @@ local dTP = extras:AddDropdown("Places", function(place)
 end
 end)
 
-local tp1 = dTp:Add("1")
-local tp2 = dTp:Add("2")
-local tp3 = dTp:Add("3")
-local tp4 = dTp:Add("4")
-local tp5 = dTp:Add("5")
-local tp6 = dTp:Add("6")
-local tp7 = dTp:Add("7")
-local tp8 = dTp:Add("8")
+local tp1 = dTP:Add("1")
+local tp2 = dTP:Add("2")
+local tp3 = dTP:Add("3")
+local tp4 = dTP:Add("4")
+local tp5 = dTP:Add("5")
+local tp6 = dTP:Add("6")
+local tp7 = dTP:Add("7")
+local tp8 = dTP:Add("8")
 
 extras:AddButton("Teleport", function()
 
