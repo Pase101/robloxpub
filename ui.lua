@@ -95,20 +95,27 @@ local swPunch = killing:AddSwitch("Punch", function(state)
         end
     end
 
-    local function unequipPunch()
-        local equippedPunchTool = character:FindFirstChild("Punch")
-        if equippedPunchTool then
-            equippedPunchTool.Parent = backpack
+    local function ensureEquipped()
+        while swPunch:Get() do
+            if not character:FindFirstChild("Punch") then
+                equipPunch()
+            end
+            wait(0.1) 
         end
     end
 
     if state then
         equipPunch()
+        spawn(ensureEquipped)
     else
-        unequipPunch()
+        local equippedPunchTool = character:FindFirstChild("Punch")
+        if equippedPunchTool then
+            equippedPunchTool.Parent = backpack
+        end
     end
 end)
 swPunch:Set(false)
+
 
 
 
