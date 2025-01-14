@@ -228,24 +228,23 @@ extras:AddLabel("Teleport")
 
 local dTP = extras:AddDropdown("Places", function(place)
 	if place == "1" then
-		print("o")
-	elseif place == "2" then
-		print("o")
-	elseif place == "3" then
-		print("o")
-	elseif place == "4" then
-		print("o")
-	elseif place == "5" then
-		print("o")
-	elseif place == "6" then
-		print("o")
-	elseif place == "7" then
-		print("o")
-	elseif place == "8" then
-		print("o")
-end
+			print("o")
+		elseif place == "2" then
+			print("o")
+		elseif place == "3" then
+			print("o")
+		elseif place == "4" then
+			print("o")
+		elseif place == "5" then
+			print("o")
+		elseif place == "6" then
+			print("o")
+		elseif place == "7" then
+			print("o")
+		elseif place == "8" then
+			print("o")
+	end
 end)
-
 local tp1 = dTP:Add("1")
 local tp2 = dTP:Add("2")
 local tp3 = dTP:Add("3")
