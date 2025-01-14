@@ -83,30 +83,33 @@ local killing = window:AddTab("Killing")
 
 killing:AddLabel("Punches")
 
-local swPunch = killing:AddSwitch("Punche", function(state)
+local swPunch = killing:AddSwitch("Punch", function(state)
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:FindFirstChild("Humanoid")
-    local backpack = player:FindFirstChild("Backpack")
-    local punchTool = backpack:FindFirstChild("Punch") or character:FindFirstChild("Punch")
+    local backpack = player:WaitForChild("Backpack")
+    local punchTool = backpack:FindFirstChild("Punch")
 
     if state then
-        -- Equip the tool if it's in the backpack
-        if punchTool and humanoid then
-            humanoid:EquipTool(punchTool)
+        -- Equip the Punch tool if it exists in the Backpack
+        if punchTool then
+            punchTool.Parent = character
+            print("Punch tool equipped!")
         else
-            warn("Punch tool not found or humanoid missing!")
+            warn("Punch tool not found in Backpack!")
         end
     else
-        -- Unequip the tool and send it back to the backpack if currently equipped
-        if punchTool and punchTool.Parent == character then
-            punchTool.Parent = backpack
+        -- Unequip the Punch tool if it is currently in the character
+        local equippedPunchTool = character:FindFirstChild("Punch")
+        if equippedPunchTool then
+            equippedPunchTool.Parent = backpack
+            print("Punch tool unequipped!")
         else
-            warn("Punch tool not equipped or not found!")
+            print("Punch tool is not equipped!")
         end
     end
 end)
-swPunch:Set(false) -- Initialize the switch to the off state
+swPunch:Set(false) -- Initialize the switch to off
+
 
 
 local swPunch2 = killing:AddSwitch("Fast Punch", function()
