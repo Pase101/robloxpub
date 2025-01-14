@@ -226,16 +226,33 @@ local extras = window:AddTab("Extras")
 
 extras:AddLabel("Teleport")
 local dTP = extras:AddDropdown("Places", function(place)
-	if place == ""
+	if place == "1" then
 
+	elseif place == "2" then
+		print("o")
+	elseif place == "3" then
+		print("o")
+	elseif place == "4" then
+		print("o")
+	elseif place == "5" then
+		print("o")
+	elseif place == "6" then
+		print("o")
+	elseif place == "7" then
+		print("o")
+	elseif place == "8" then
+		print("o")
 end
 end)
 
-local tp1
-local tp
-local tp
-local tp
-local tp
+local tp1 = dTp:Add("1")
+local tp2 = dTp:Add("2")
+local tp3 = dTp:Add("3")
+local tp4 = dTp:Add("4")
+local tp5 = dTp:Add("5")
+local tp6 = dTp:Add("6")
+local tp7 = dTp:Add("7")
+local tp8 = dTp:Add("8")
 
 extras:AddButton("Teleport", function()
 
