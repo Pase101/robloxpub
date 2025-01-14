@@ -89,26 +89,30 @@ local swPunch = killing:AddSwitch("Punch", function(state)
     local backpack = player:WaitForChild("Backpack")
     local punchTool = backpack:FindFirstChild("Punch")
 
-    if state then
-        -- Equip the Punch tool if it exists in the Backpack
+    local function equipPunch()
         if punchTool then
             punchTool.Parent = character
-            print("Punch tool equipped!")
-        else
-            warn("Punch tool not found in Backpack!")
         end
-    else
-        -- Unequip the Punch tool if it is currently in the character
+    end
+
+    local function unequipPunch()
         local equippedPunchTool = character:FindFirstChild("Punch")
         if equippedPunchTool then
             equippedPunchTool.Parent = backpack
-            print("Punch tool unequipped!")
-        else
-            print("Punch tool is not equipped!")
         end
     end
+
+    while true do
+        if state then
+            equipPunch()
+        else
+            unequipPunch()
+        end
+        wait(0.1)
+    end
 end)
-swPunch:Set(false) -- Initialize the switch to off
+swPunch:Set(false)
+
 
 
 
