@@ -84,9 +84,19 @@ local killing = window:AddTab("Killing")
 killing:AddLabel("Punches")
 
 local swPunch = killing:AddSwitch("Punch1", function(enabled)
-	local punchTool = Workspace.pasql3:FindFirstChild("Punch")
-    if punchTool then
-        punchTool.Enabled = enabled
+	local player = game.Players.LocalPlayer
+    local character = player.Character
+    local backpack = player.Backpack
+    local punchTool = backpack:FindFirstChild("Punch") or (character and character:FindFirstChild("Punch"))
+
+    if state then
+        if punchTool and punchTool.Parent == backpack then
+            character.Humanoid:EquipTool(punchTool)
+        end
+    else
+        if punchTool and punchTool.Parent == character then
+            punchTool.Parent = backpack
+        end
     end
 end)
 swPunch:Set(false)
