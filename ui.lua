@@ -83,7 +83,7 @@ local killing = window:AddTab("Killing")
 
 killing:AddLabel("Punches")
 
-local swPunch = killing:AddSwitch("Punch", function(enabled)
+local swPunch = killing:AddSwitch("Punch1", function(enabled)
 	local punchTool = Workspace.pasql3:FindFirstChild("Punch")
     if punchTool then
         punchTool.Enabled = enabled
