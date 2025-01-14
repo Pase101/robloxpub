@@ -90,7 +90,7 @@ local swPunch = killing:AddSwitch("Punch", function(state)
     local punchTool = backpack:FindFirstChild("Punch")
 
     local function equipPunch()
-        if punchTool then
+        if punchTool and not character:FindFirstChild("Punch") then
             punchTool.Parent = character
         end
     end
@@ -102,16 +102,14 @@ local swPunch = killing:AddSwitch("Punch", function(state)
         end
     end
 
-    while true do
-        if state then
-            equipPunch()
-        else
-            unequipPunch()
-        end
-        wait(0.1)
+    if state then
+        equipPunch()
+    else
+        unequipPunch()
     end
 end)
 swPunch:Set(false)
+
 
 
 
