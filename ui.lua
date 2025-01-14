@@ -51,6 +51,11 @@ local swPet2 = automation:AddSwitch("Show Other Pets", function()
 end)
 swPet2:Set(false)
 
+local swAfk = automation:AddSwitch("Anti AFK", function()
+
+end)
+swAfk:Set(false)
+
 automation:AddLabel(" ")
 automation:AddLabel("Protection")
 
@@ -212,12 +217,33 @@ end)
 swGlitch:Set(false)
 
 local swGlitch2 = glitch:AddSwitch("Fast Glitch", function(bool)
-    
+
 end)
 swGlitch2:Set(false)
 
 
+local extras = window:AddTab("Extras")
 
+extras:AddLabel("Teleport")
+local dTP = extras:AddDropdown("Places", function(place)
+	if place == ""
+
+end
+end)
+
+local tp1
+local tp
+local tp
+local tp
+local tp
+
+extras:AddButton("Teleport", function()
+
+end)
+
+extras:AddButton("Saveplace", function()
+
+end)
 
 local config1 = window:AddTab("Config")
 
