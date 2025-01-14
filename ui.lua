@@ -264,6 +264,8 @@ end)
 
 local config1 = window:AddTab("Config")
 
+config1:AddButton("Script")
+
 config1:AddButton("Save",function()
 
 end)
