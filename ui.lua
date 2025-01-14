@@ -212,7 +212,7 @@ end)
 swGlitch:Set(false)
 
 local swGlitch2 = glitch:AddSwitch("Fast Glitch", function(bool)
-    print(bool)
+    
 end)
 swGlitch2:Set(false)
 
