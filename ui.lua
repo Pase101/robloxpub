@@ -234,10 +234,10 @@ config1:AddLabel("")
 config1:AddLabel("Saves")
 
 
-local swSve1 = glitch:AddSwitch("Save Automation", function(bool)
+local swSve1 = config1:AddSwitch("Save Automation", function(bool)
     print(bool)
 end)
-swSve1:Set(true)
+swSve1:Set(false)
 
 
 
