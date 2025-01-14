@@ -227,7 +227,7 @@ local extras = window:AddTab("Extras")
 extras:AddLabel("Teleport")
 local dTP = extras:AddDropdown("Places", function(place)
 	if place == "1" then
-
+		print("o")
 	elseif place == "2" then
 		print("o")
 	elseif place == "3" then
