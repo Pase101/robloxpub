@@ -327,7 +327,7 @@ UIListLayout_3.Padding = UDim.new(0, 20)
 
 Dropdown.Name = "Dropdown"
 Dropdown.Parent = Prefabs
-Dropdown.BackgroundColor3 = Color3.new(1, 1, 1)
+Dropdown.BackgroundColor3 = Color3.new(141, 45, 150)
 Dropdown.BackgroundTransparency = 1
 Dropdown.BorderSizePixel = 0
 Dropdown.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
