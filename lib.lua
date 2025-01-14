@@ -129,7 +129,7 @@ Resizer.Size = UDim2.new(0, 20, 0, 20)
 
 Bar.Name = "Bar"
 Bar.Parent = Window
-Bar.BackgroundColor3 = Color3.new(0.462745, 0.964705, 0.954901)
+Bar.BackgroundColor3 = Color3.new(0.462745, 0.364705, 0.454901)
 Bar.BorderSizePixel = 0
 Bar.Position = UDim2.new(0, 0, 0, 5)
 Bar.Size = UDim2.new(1, 0, 0, 15)
@@ -182,7 +182,7 @@ Title.Size = UDim2.new(0, 200, 0, 20)
 Title.Font = Enum.Font.DenkOne
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 22
+Title.TextSize = 14
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
 TabSelection.Name = "TabSelection"
@@ -327,7 +327,7 @@ UIListLayout_3.Padding = UDim.new(0, 20)
 
 Dropdown.Name = "Dropdown"
 Dropdown.Parent = Prefabs
-Dropdown.BackgroundColor3 = Color3.new(141, 45, 150)
+Dropdown.BackgroundColor3 = Color3.new(1, 1, 1)
 Dropdown.BackgroundTransparency = 1
 Dropdown.BorderSizePixel = 0
 Dropdown.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
@@ -335,13 +335,13 @@ Dropdown.Size = UDim2.new(0, 200, 0, 20)
 Dropdown.ZIndex = 2
 Dropdown.Font = Enum.Font.DenkOne
 Dropdown.Text = "      Dropdown"
-Dropdown.TextColor3 = Color3.new(141, 45, 150)
+Dropdown.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 Dropdown.TextSize = 14
 Dropdown.TextXAlignment = Enum.TextXAlignment.Left
 
 Indicator_2.Name = "Indicator"
 Indicator_2.Parent = Dropdown
-Indicator_2.BackgroundColor3 = Color3.new(141, 45, 150)
+Indicator_2.BackgroundColor3 = Color3.new(1, 1, 1)
 Indicator_2.BackgroundTransparency = 1
 Indicator_2.Position = UDim2.new(0.899999976, -10, 0.100000001, 0)
 Indicator_2.Rotation = -90
@@ -351,13 +351,13 @@ Indicator_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=4
 
 Box.Name = "Box"
 Box.Parent = Dropdown
-Box.BackgroundColor3 = Color3.new(141, 45, 150)
+Box.BackgroundColor3 = Color3.new(1, 1, 1)
 Box.BackgroundTransparency = 1
 Box.Position = UDim2.new(0, 0, 0, 25)
 Box.Size = UDim2.new(1, 0, 0, 150)
 Box.ZIndex = 3
 Box.Image = "rbxassetid://2851929490"
-Box.ImageColor3 = Color3.new(141, 45, 150)
+Box.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 Box.ScaleType = Enum.ScaleType.Slice
 Box.SliceCenter = Rect.new(4, 4, 4, 4)
 
@@ -741,7 +741,7 @@ TextButton_Roundify_4px_5.SliceCenter = Rect.new(4, 4, 4, 4)
 
 DropdownButton.Name = "DropdownButton"
 DropdownButton.Parent = Prefabs
-DropdownButton.BackgroundColor3 = Color3.new(141, 45, 150)
+DropdownButton.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 DropdownButton.BorderSizePixel = 0
 DropdownButton.Size = UDim2.new(1, 0, 0, 20)
 DropdownButton.ZIndex = 3
