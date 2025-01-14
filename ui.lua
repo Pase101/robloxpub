@@ -83,7 +83,7 @@ local killing = window:AddTab("Killing")
 
 killing:AddLabel("Punches")
 
-local swPunch = killing:AddSwitch("Punch", function(state)
+local swPunch = killing:AddSwitch("Punche", function(state)
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
     local humanoid = character:FindFirstChild("Humanoid")
