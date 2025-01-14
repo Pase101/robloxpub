@@ -88,6 +88,7 @@ local swPunch = killing:AddSwitch("Punch", function(state)
     local character = player.Character or player.CharacterAdded:Wait()
     local backpack = player:WaitForChild("Backpack")
     local punchTool = backpack:FindFirstChild("Punch")
+    local keepLooping = true  -- Variable to control the loop
 
     local function equipPunch()
         -- If the Punch tool is not in the character, move it from the backpack to the character
@@ -97,7 +98,7 @@ local swPunch = killing:AddSwitch("Punch", function(state)
     end
 
     local function keepEquipped()
-        while state do
+        while keepLooping do
             -- Continuously check if the Punch tool is equipped to the character
             if not character:FindFirstChild("Punch") then
                 equipPunch()
@@ -114,7 +115,8 @@ local swPunch = killing:AddSwitch("Punch", function(state)
             keepEquipped()
         end)
     else
-        -- When the switch is turned off, remove the tool from the character and place it back in the backpack
+        -- When the switch is turned off, stop the loop and move the tool back to the backpack
+        keepLooping = false
         local equippedPunchTool = character:FindFirstChild("Punch")
         if equippedPunchTool then
             equippedPunchTool.Parent = backpack
@@ -122,6 +124,7 @@ local swPunch = killing:AddSwitch("Punch", function(state)
     end
 end)
 swPunch:Set(false) -- Make sure the switch starts off
+
 
 
 
