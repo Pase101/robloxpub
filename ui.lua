@@ -230,38 +230,35 @@ config1:AddButton("Reset Save",function()
 
 end)
 
+config1:AddLabel("")
 config1:AddLabel("Saves")
 
 
-
---local folder1 = config1:AddFolder()
-
---folder1:AddButton("Save Whitelist")
-
-
-
-config1:AddButton("Reset Whitelist", function()
-    
-end)
-
-
-
-local swSve1 = glitch:AddSwitch("Save Automationnn", function(bool)
+local swSve1 = glitch:AddSwitch("Save Automation", function(bool)
     print(bool)
 end)
 swSve1:Set(true)
 
 
 
---local swSave2 = config1:AddSwitch("Save Whitelist", function(bool)
+local swSave2 = config1:AddSwitch("Save Whitelist", function(bool)
 
---end)
---swSave2:Set(false)
+end)
+swSave2:Set(false)
 
---local swSave3 = config1:AddSwitch("Save Blacklist", function(bool)
+local swSave3 = config1:AddSwitch("Save Blacklist", function(bool)
 
---end)
---swSave3:Set(false)
+end)
+swSave3:Set(false)
+
+
+
+local creds = window:AddTab("Credits")
+
+creds:AddLabel("Made by Pase")
+creds:AddLabel("Discord: pasee")
+creds:AddLabel("")
+creds:AddLabel("PRIVATE VERSION")
 
 
 
