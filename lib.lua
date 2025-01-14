@@ -341,7 +341,7 @@ Dropdown.TextXAlignment = Enum.TextXAlignment.Left
 
 Indicator_2.Name = "Indicator"
 Indicator_2.Parent = Dropdown
-Indicator_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Indicator_2.BackgroundColor3 = Color3.new(141, 45, 150)
 Indicator_2.BackgroundTransparency = 1
 Indicator_2.Position = UDim2.new(0.899999976, -10, 0.100000001, 0)
 Indicator_2.Rotation = -90
@@ -351,7 +351,7 @@ Indicator_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=4
 
 Box.Name = "Box"
 Box.Parent = Dropdown
-Box.BackgroundColor3 = Color3.new(1, 1, 1)
+Box.BackgroundColor3 = Color3.new(141, 45, 150)
 Box.BackgroundTransparency = 1
 Box.Position = UDim2.new(0, 0, 0, 25)
 Box.Size = UDim2.new(1, 0, 0, 150)
