@@ -35,13 +35,6 @@ automation:AddLabel(" ")
 automation:AddLabel("Misc")
 
 
-local slider = automation:AddSlider("Camera Zoom", function(value)
-    workspace.CurrentCamera.FieldOfView = value
-end, {
-    ["min"] = 70,
-    ["max"] = 120,
-})
-slider:Set(70)
 
 
 local swMusic = automation:AddSwitch("Music", function()
