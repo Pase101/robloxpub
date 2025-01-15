@@ -38,9 +38,12 @@ automation:AddLabel("Misc")
 automation:AddTextBox("Camera Zoom", function(text)
     local zoom = tonumber(text) 
     if zoom then
-        workspace.CurrentCamera.FieldOfView = zoom
+        local player = game.Players.LocalPlayer
+        player.CameraMinZoomDistance = zoom
+        player.CameraMaxZoomDistance = zoom
     end
 end)
+
 
 
 local swMusic = automation:AddSwitch("Music", function()
