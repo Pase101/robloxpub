@@ -309,8 +309,18 @@ extras:AddButton("Teleport", function()
 end)
 
 extras:AddButton("Saveplace", function()
+    local targetPosition = Vector3.new(196, 54, 317)
 
+    while wait(0.1) do
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+        else
+            break
+        end
+    end
 end)
+
 
 local config1 = window:AddTab("Config")
 
