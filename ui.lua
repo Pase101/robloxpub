@@ -74,8 +74,54 @@ local swFling = automation:AddSwitch("Anti Fling", function()
 end)
 swFling:Set(false)
 
-local swLock = automation:AddSwitch("Position Lock", function()
+local isLockEnabled = false
+local previousPosition = nil
 
+local function lockPositionAtCurrentLocation()
+    local character = game.Players.LocalPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if character and humanoidRootPart then
+        local bodyGyro = Instance.new("BodyGyro")
+        bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+        bodyGyro.CFrame = humanoidRootPart.CFrame
+        bodyGyro.Parent = humanoidRootPart
+
+        local bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.Parent = humanoidRootPart
+
+        while isLockEnabled do
+            humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position)
+            bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+            bodyGyro.CFrame = humanoidRootPart.CFrame
+            wait(0.1)
+        end
+
+        bodyGyro:Destroy()
+        bodyVelocity:Destroy()
+    end
+end
+
+local function stopLockingPosition()
+    local character = game.Players.LocalPlayer.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+
+    if character and humanoid then
+        humanoid.PlatformStand = false
+    end
+end
+
+local swLock = automation:AddSwitch("Position Lock", function(state)
+    if state then
+        isLockEnabled = true
+        previousPosition = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
+        task.spawn(lockPositionAtCurrentLocation)
+    else
+        isLockEnabled = false
+        stopLockingPosition()
+    end
 end)
 swLock:Set(false)
 
