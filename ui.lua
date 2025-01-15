@@ -315,10 +315,19 @@ local swSavePlace = extras:AddSwitch("Saveplace", function(isEnabled)
         local player = game.Players.LocalPlayer
         if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
             player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+            if player.Character:FindFirstChild("Humanoid") then
+                player.Character.Humanoid.PlatformStand = true
+            end
         end
+        wait(0.1)
+    end
+
+    if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
     end
 end)
 swSavePlace:Set(false)
+
 
 
 
