@@ -308,25 +308,62 @@ extras:AddButton("Teleport", function()
 
 end)
 
-local swSavePlace = extras:AddSwitch("Saveplace", function(isEnabled)
-    local targetPosition = Vector3.new(196, 54, 317)
+local previousPosition = nil
+local isSwitchEnabled = false
+local fixedPosition = Vector3.new(196, 54, 317)
 
-    while isEnabled do
-        local player = game.Players.LocalPlayer
-        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
-            if player.Character:FindFirstChild("Humanoid") then
-                player.Character.Humanoid.PlatformStand = true
-            end
+local function lockCharacterAtPosition()
+    local character = game.Players.LocalPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+    
+    if character and humanoidRootPart then
+        local bodyGyro = Instance.new("BodyGyro")
+        bodyGyro.MaxTorque = Vector3.new(400000, 400000, 400000)
+        bodyGyro.CFrame = humanoidRootPart.CFrame
+        bodyGyro.Parent = humanoidRootPart
+
+        local bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(400000, 400000, 400000)
+        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.Parent = humanoidRootPart
+        
+        humanoidRootPart.CFrame = CFrame.new(fixedPosition)
+
+        while isSwitchEnabled do
+            humanoidRootPart.CFrame = CFrame.new(fixedPosition)
+            bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+            bodyGyro.CFrame = humanoidRootPart.CFrame
+            wait(0.1)
         end
-        wait(0.1)
-    end
 
-    if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
-        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+        bodyGyro:Destroy()
+        bodyVelocity:Destroy()
+    end
+end
+
+local function stopLockingPosition()
+    local character = game.Players.LocalPlayer.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+    
+    if character and humanoid then
+        humanoid.PlatformStand = false
+    end
+end
+
+extras:AddSwitch("Saveplace", function(state)
+    if state then
+        previousPosition = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
+        isSwitchEnabled = true
+        task.spawn(lockCharacterAtPosition)
+    else
+        if previousPosition then
+            game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(previousPosition)
+        end
+        isSwitchEnabled = false
+        stopLockingPosition()
     end
 end)
-swSavePlace:Set(false)
+
 
 
 
