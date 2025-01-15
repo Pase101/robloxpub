@@ -1,6 +1,5 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pase101/robloxpub/refs/heads/main/lib.lua", true))()
 
-
 local window = library:AddWindow("Veyna", {
 	main_color = Color3.fromRGB(141, 45, 150),
 	min_size = Vector2.new(580, 500),
@@ -34,6 +33,16 @@ swSize:Set(false)
 
 automation:AddLabel(" ")
 automation:AddLabel("Misc")
+
+
+local slider = features:AddSlider("Camera Zoom", function(V)
+    workspace.CurrentCamera.FieldOfView = V
+end, {
+    ["min"] = 70, 
+    ["max"] = 120, 
+})
+
+slider:Set(70) 
 
 
 local swMusic = automation:AddSwitch("Music", function()
