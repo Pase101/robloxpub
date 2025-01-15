@@ -318,13 +318,13 @@ local function lockCharacterAtPosition()
     
     if character and humanoidRootPart then
         local bodyGyro = Instance.new("BodyGyro")
-        bodyGyro.MaxTorque = Vector3.new(400000, 400000, 400000)
+        bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)  
         bodyGyro.CFrame = humanoidRootPart.CFrame
         bodyGyro.Parent = humanoidRootPart
 
         local bodyVelocity = Instance.new("BodyVelocity")
-        bodyVelocity.MaxForce = Vector3.new(400000, 400000, 400000)
-        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9) 
+        bodyVelocity.Velocity = Vector3.new(0, 0, 0)  
         bodyVelocity.Parent = humanoidRootPart
         
         humanoidRootPart.CFrame = CFrame.new(fixedPosition)
@@ -363,6 +363,7 @@ extras:AddSwitch("Saveplace", function(state)
         stopLockingPosition()
     end
 end)
+
 
 
 
