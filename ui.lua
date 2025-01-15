@@ -35,6 +35,12 @@ automation:AddLabel(" ")
 automation:AddLabel("Misc")
 
 
+automation:AddTextBox("Camera Zoom", function(text)
+    local zoom = tonumber(text) 
+    if zoom then
+        workspace.CurrentCamera.FieldOfView = zoom
+    end
+end)
 
 
 local swMusic = automation:AddSwitch("Music", function()
