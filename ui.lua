@@ -35,7 +35,7 @@ automation:AddLabel(" ")
 automation:AddLabel("Misc")
 
 
-local slider = features:AddSlider("Camera Zoom", function(V)
+local slider = automation:AddSlider("Camera Zoom", function(V)
     workspace.CurrentCamera.FieldOfView = V
 end, {
     ["min"] = 70, 
