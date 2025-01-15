@@ -67,7 +67,7 @@ end)
 swAfk:Set(false)
 
 automation:AddLabel(" ")
-automation:AddLabel("Protection1")
+automation:AddLabel("Protection11")
 
 local isFlingEnabled = false
 
