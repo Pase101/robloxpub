@@ -69,10 +69,60 @@ swAfk:Set(false)
 automation:AddLabel(" ")
 automation:AddLabel("Protection")
 
-local swFling = automation:AddSwitch("Anti Fling", function()
+local isFlingEnabled = false
 
+local function applyAntiFling()
+    local character = game.Players.LocalPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if character and humanoidRootPart then
+        local bodyGyro = Instance.new("BodyGyro")
+        bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+        bodyGyro.CFrame = humanoidRootPart.CFrame
+        bodyGyro.Parent = humanoidRootPart
+
+        local bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.Parent = humanoidRootPart
+
+        local lastPosition = humanoidRootPart.Position
+
+        while isFlingEnabled do
+            local currentPosition = humanoidRootPart.Position
+            local offset = lastPosition - currentPosition
+            humanoidRootPart.CFrame = humanoidRootPart.CFrame + offset * 0.1
+            bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+            bodyGyro.CFrame = humanoidRootPart.CFrame
+            lastPosition = humanoidRootPart.Position
+            wait(0.03)
+        end
+
+        bodyGyro:Destroy()
+        bodyVelocity:Destroy()
+    end
+end
+
+local function removeAntiFling()
+    local character = game.Players.LocalPlayer.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+
+    if character and humanoid then
+        humanoid.PlatformStand = false
+    end
+end
+
+local swFling = automation:AddSwitch("Anti Fling", function(state)
+    if state then
+        isFlingEnabled = true
+        task.spawn(applyAntiFling)
+    else
+        isFlingEnabled = false
+        removeAntiFling()
+    end
 end)
 swFling:Set(false)
+
 
 local isLockEnabled = false
 local previousPosition = nil
